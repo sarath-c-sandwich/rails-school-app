@@ -1,0 +1,11 @@
+<h2>Course name: <%= @course.title %></h2>
+<p>
+    <strong>Short title: </strong>
+    <%= @course.short_title %>
+</p>
+<p><strong>Duration: </strong> <%= @course.duration %></p>
+<p><strong>Cost per day: </strong><%= @course.cost_per_day %></p>
+<p><strong>Summary: </strong><%= @course.summary %></p>
+<p><strong>Published: </strong><%= @course.published %></p>
+<%= link_to "Update course", edit_course_path(@course), class:"btn btn-primary" %>
+<%= link_to "Add objective", course_objectives_path(@course), class:"btn btn-primary" %>

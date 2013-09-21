@@ -1,14 +1,16 @@
 SchoolApp::Application.routes.draw do
 
-  get "home/index"
   root "home#index"
-  get "home/index"
   get "contact" => "home#contact"
-  resources "home"
-  resources "courses"
-  resources "categories"
-  resources "textbooks"
-  # The priority is based upon order of creation: first created -> highest priority.
+  resources :home
+  
+  resources :courses do 
+    resources :objectives
+  end
+  
+  resources :categories
+  
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

@@ -1,0 +1,28 @@
+<h2><%= pluralize(@courses.size, "Course") %> available</h2>
+<table class="table table-hover">
+    <tr class="success">
+        <th>Course title</th>
+        <th>Duration</th>
+        <th>Cost per day</th>
+        <th>Category</th>
+        <th>Tutor</th>
+        <th></th>
+    </tr>
+    <tbody>
+    <% @courses.each do |course|%>
+        <tr>
+            <td><%= link_to course.title, edit_course_url(course) %></td>
+            <td><%= pluralize course.duration.to_i, "Day" %></td>
+            <td><%= number_to_currency(course.cost_per_day) %></td>
+            <td>Html 5</td>
+            <td>Darren Jensen</td>
+            <td> 
+                <%= link_to "List objectives", course_objectives_path(course) %> | 
+                <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_course_url(course) %>  | 
+                <%= link_to ("<span class='glyphicon glyphicon-trash'></span>").html_safe, course_path(course) , method: :delete, confirm:"Do you really want to delete?" %>
+                
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>

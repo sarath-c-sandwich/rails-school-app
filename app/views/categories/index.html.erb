@@ -1,0 +1,25 @@
+<%= render "form"%>
+<% i = 0%>
+<table class="table">
+<tr class="success">
+    <th>#</th>
+    <th>Category</th>
+    <th></th>
+</tr>
+<% @categories.each do |cat|%>
+    <tr>
+            <td>
+                <%= i += 1%>
+            </td> 
+            <td>   
+                <%= link_to cat.name, category_path(cat) %>
+            </td>
+            <td>
+                <div class="pull-right">
+                <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_category_url(cat) %>  | 
+                <%= link_to ("<span class='glyphicon glyphicon-trash'></span>").html_safe, category_path(cat) , method: :delete, confirm:"Do you really want to delete?" %>
+                </div>
+            </td>
+    </tr>
+<% end %>
+</table>

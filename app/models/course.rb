@@ -1,9 +1,12 @@
 class Course < ActiveRecord::Base
     
     has_and_belongs_to_many :categories
-    has_many :objectives, dependent: :destroy
+    has_and_belongs_to_many :textbooks
+    belongs_to :tutors
 
-    def select_categories
+    has_many :objectives, ->{order "created_at ASC"},dependent: :destroy
+
+    def self.get_categories
         Category.all
     end
 

@@ -4,9 +4,10 @@
   <ul>
     <%= link_to "Add new course", new_course_url, class:"btn btn-success btn-block" %>
   </ul>
-  <ul>
+  <ul>    
     <li class="list-group-item"><%= link_to "Course Categories", categories_url %></li>
-    <li class="list-group-item"><span class="badge">10</span>List course objective</li>
-    <li class="list-group-item">Enrollments</li>    
+    <li class="list-group-item"><%= link_to "Course Textbooks", textbooks_url %></li>
+    <li class="list-group-item"><span class="badge">10</span><%= link_to "Languages", languages_url %></li>
+    <li class="list-group-item"><%= link_to "Skillsets", skillsets_url %></li>   
   </ul>
 </div>

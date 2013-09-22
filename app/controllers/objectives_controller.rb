@@ -5,7 +5,7 @@ class ObjectivesController < ApplicationController
 
     def index
         # select all objectives which on the same course id
-        @objectives = @course.objectives
+        @objectives = @course.objectives.order("created_at DESC")
         @objective = @course.objectives.new
     end
 

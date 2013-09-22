@@ -25,3 +25,11 @@ p {
     line-height: 22px;
     margin: 12.5px 0;
 }
+
+input[type="checkbox"] {
+  margin: 4px 5px 0;
+  label {
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+}

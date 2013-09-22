@@ -1,5 +1,14 @@
 SchoolApp::Application.routes.draw do
 
+  resources :designatories
+
+  resources :skillsets
+
+  resources :languages
+
+  resources :tutors
+
+  resources :textbooks
   root "home#index"
   get "contact" => "home#contact"
   resources :home
@@ -7,7 +16,7 @@ SchoolApp::Application.routes.draw do
   resources :courses do 
     resources :objectives
   end
-  
+
   resources :categories
   
     # The priority is based upon order of creation: first created -> highest priority.

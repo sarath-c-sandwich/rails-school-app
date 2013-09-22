@@ -1,0 +1,26 @@
+<h2><%= pluralize(@languages.size, "Language") %> on the list</h2>
+<%= render "form"%>
+<table class="table table-hover" style="margin-top: 40px">
+    <tr class="success">
+        <th>#</th>
+        <th>Language name</th>
+        <th>Short code</th>
+        <th></th>
+    </tr>
+    <tbody>
+    <% i = 0%>
+    <% @languages.each do |language|%>
+        <tr>
+            <td><%= i+=1 %></td>
+            <td><%= language.language %></td>
+            <td><%= language.short_code %></td>
+            <td>
+                <div class="pull-right"> 
+                <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_language_url(language) %>  | 
+                <%= link_to ("<span class='glyphicon glyphicon-trash'></span>").html_safe, language_path(language) , method: :delete, confirm:"Do you really want to delete?" %>
+                </div>
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>

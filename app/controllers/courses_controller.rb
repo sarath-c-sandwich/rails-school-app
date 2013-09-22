@@ -3,11 +3,12 @@ class CoursesController < ApplicationController
     before_action :get_params, :only => [:destroy, :show, :edit, :update]
     
     def index
-        @courses = Course.all
+        @courses = Course.all.order("created_at DESC")
     end
 
     def new
         @course = Course.new
+        @categories = Course.get_categories
     end
 
     def create
@@ -45,9 +46,15 @@ class CoursesController < ApplicationController
     end
 
     def get_course
-        params.require(:course).
-            permit(:title, :short_title, :duration, :cost_per_day, :summary, :published)
+      params.require(:course).
+        permit(:title, 
+            :short_title, 
+            :duration, 
+            :cost_per_day, 
+            :summary, 
+            :published,
+            category_ids: [], 
+            textbook_ids: [])
     end
-
-
+    
 end

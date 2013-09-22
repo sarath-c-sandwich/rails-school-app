@@ -1,0 +1,17 @@
+<div>
+    <%= form_for(@language) do |f| %>
+    <div class="col-md-8">
+        <div class="form-group">
+            <%= f.label :language, class:"form-label" %>
+            <%= f.text_field :language, class:"form-control" %>
+        </div>    
+        <div class="form-group">
+            <%= f.label :short_code, class:"form-label" %>
+            <%= f.text_field :short_code, class:"form-control" %>
+        </div>    
+        <div class="form-group">
+            <%= f.submit class:"btn btn-primary" %>
+        </div>
+    </div>
+    <% end %>
+</div>

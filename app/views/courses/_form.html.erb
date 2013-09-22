@@ -11,6 +11,11 @@
     </div>
 
     <div class="form-group">
+        <label class="control-label">Categories</label>
+        <%= f.collection_select :category_ids, Category.all, :id, :name, {}, {:multiple=>true, :size => 5, class:"form-control" }%>
+    </div>
+
+    <div class="form-group">
         <%= f.label :duration, "Duration (Days)", class:"control-label" %>
         <%= f.number_field :duration, class:"form-control" %>
     </div> 
@@ -24,6 +29,12 @@
         <%= f.label :summary, class:"control-label" %>
         <%= f.text_area :summary, class:"form-control", cols:"50", rows:"5" %>
     </div>
+
+    <div class="form-group">
+        <label class="control-label">Textbooks</label>
+        <%= f.collection_select :textbook_ids, Textbook.all, :id, :title, {}, {:multiple=>true, :size => 5, class:"form-control" }%>
+    </div>
+
 
     <div class="form-group">        
         <%= f.check_box :published %>

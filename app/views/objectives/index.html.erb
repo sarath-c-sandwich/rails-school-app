@@ -19,8 +19,10 @@
                   <%= obj.description %>
                 </td>
                 <td>  
+                  <div class="pull-right">
                   <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_course_objective_path(@course, obj) %> | 
-                  <%= link_to(("<span class='glyphicon glyphicon-trash'></span>").html_safe, course_objective_path(@course, obj), method: :delete, data: {confirm: "Do you really want to delete?"}) %>        
+                  <%= link_to(("<span class='glyphicon glyphicon-trash'></span>").html_safe, course_objective_path(@course, obj), method: :delete, data: {confirm: "Do you really want to delete?"}) %>
+                  </div>
                 </td>
             <% end %>
         </tr>

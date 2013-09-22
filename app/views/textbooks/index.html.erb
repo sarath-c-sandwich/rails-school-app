@@ -1,0 +1,26 @@
+<h2><%= pluralize have_book?, "textbook" %> on the storage</h2>
+<table class="table table-hover">
+    <tr class="success">
+        <th>#</th>
+        <th>Book title</th>
+        <th>Author</th>
+        <th>Published year</th>
+        <th></th>
+    </tr>
+<% i = 0 %>
+<% @textbooks.each do |textbook|%>
+   <tr> 
+    <td><%= i += 1 %></td>
+    <td><%= textbook.title %></td>
+    <td><%= textbook.author %></td>
+    <td><%= textbook.have_published_year? %></td>
+    <td>
+        <div class="pull-right">
+        <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_textbook_url(textbook) %>  | 
+        <%= link_to ("<span class='glyphicon glyphicon-trash'></span>").html_safe, textbook_path(textbook) , method: :delete, confirm:"Do you really want to delete?" %>
+        </div>
+    </td>
+   </tr>
+<% end %>
+</table>
+<%= link_to "Create textbook", new_textbook_path, class:"btn btn-primary" %>

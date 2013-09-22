@@ -1,0 +1,32 @@
+<h2><%= pluralize(@designatories.size, "Designatory") %> on the list</h2>
+<%= render "form" %>
+<div class="container" style="margin-top: 40px">
+    <table class="table table-hover">
+        <tr class="success">
+          <th>#</th>
+          <th>Designatory(s)</th>
+          <th>Description</th>
+          <th>Controls</th>
+        </tr>
+      <% @i = 0%>
+      <% @designatories.each do |obj| %>
+        <tr>
+                <td>
+                  <%= @i +=1 %>
+                </td>
+                <td>
+                <%= obj.designator %>
+                </td>
+                <td>
+                  <%= obj.description %>
+                </td>
+                <td>  
+                  <div class="pull-right">
+                  <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_designatory_path(obj) %> | 
+                  <%= link_to(("<span class='glyphicon glyphicon-trash'></span>").html_safe, designatory_path(obj), method: :delete, data: {confirm: "Do you really want to delete?"}) %>
+                  </div>        
+                </td>
+        </tr>
+        <% end %>
+    </table>
+</div>

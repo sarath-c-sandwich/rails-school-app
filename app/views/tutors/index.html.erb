@@ -1,0 +1,29 @@
+<h2><%= pluralize( have_tutor?, "tutor" ) %> in the list</h2>
+
+<% i = 0%>
+  <table class="table">
+  <tr class="success">
+    <th>#</th>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Daily rate</th>
+    <th>Publish</th>
+    <th></th>
+  </tr>
+<% @tutors.each do |tutor| %>
+  <tr>  
+    <td><%= i+=1 %></td>
+    <td><%= tutor.title %></td>
+    <td><%= tutor.first_name+" "+tutor.last_name %></td>
+    <td><%= free?(tutor) %></td>
+    <td><%= tutor.publish? %></td>
+    <td>
+      <div class="pull-right">
+        <%= link_to ("<span class='glyphicon glyphicon-edit'></span>").html_safe, edit_tutor_url(tutor) %>  | 
+        <%= link_to ("<span class='glyphicon glyphicon-trash'></span>").html_safe, tutor_path(tutor) , method: :delete, confirm:"Do you really want to delete?" %>
+        </div>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= link_to "Create new tutor", new_tutor_path, class:"btn btn-primary" %>
